@@ -1,14 +1,16 @@
-
 #include <DHT.h>
 
 #define DHTPIN 4
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
-#define RELAY1 5
-#define RELAY2 6
-#define RELAY3 2
-#define RELAY4 3
+#define FAN1 5
+#define FAN2 7
+#define FAN3 8
+#define FAN4 9
+#define PUMP1 6
+#define LED1 2
+#define LED2 3
 #define ON  LOW
 #define OFF HIGH
 
@@ -21,14 +23,20 @@ unsigned long currentTime2;
 unsigned long currentTime3;
 void setup() {
    Serial.begin(9600);
-   pinMode(RELAY1, OUTPUT);
-   pinMode(RELAY2, OUTPUT);
-   pinMode(RELAY3, OUTPUT);
-   pinMode(RELAY4, OUTPUT);
-   digitalWrite(RELAY1, OFF);
-   digitalWrite(RELAY2, OFF);
-   digitalWrite(RELAY3, ON);
-   digitalWrite(RELAY4, ON);
+   pinMode(FAN1, OUTPUT);
+   pinMode(FAN2, OUTPUT);
+   pinMode(FAN3, OUTPUT);
+   pinMode(FAN4, OUTPUT);
+   pinMode(PUMP1, OUTPUT);
+   pinMode(LED1, OUTPUT);
+   pinMode(LED2, OUTPUT);
+   digitalWrite(FAN1, OFF);
+   digitalWrite(FAN2, ON);
+   digitalWrite(FAN3, ON);
+   digitalWrite(FAN4, ON);
+   digitalWrite(PUMP1, OFF);
+   digitalWrite(LED1, ON);
+   digitalWrite(LED2, ON);
    dht.begin();
    startTime = millis();
    startTime2 = millis();
@@ -44,8 +52,8 @@ void loop() {
    
     if (currentTime2 - startTime2 >= 64800000) {
     startTime2 = currentTime2;
-      digitalWrite(RELAY3, OFF);
-      digitalWrite(RELAY4, OFF);
+      digitalWrite(LED1, OFF);
+      digitalWrite(LED2, OFF);
       }
     if (currentTime3 - startTime3 >= 86400000) {
     startTime3 = currentTime3;
@@ -54,15 +62,24 @@ void loop() {
     if (currentTime - startTime >= 300000) {
     startTime = currentTime;
     if (temperature >= 28) {
-      digitalWrite(RELAY1, ON);
+      digitalWrite(FAN1, ON);
     }
     else if (temperature <= 28) {
-      digitalWrite(RELAY1, OFF);
+      digitalWrite(FAN1, OFF);
     }
     if (humidity <= 50) {
-      digitalWrite(RELAY2, ON);
-      delay(30000);
-      digitalWrite(RELAY2, OFF);
+      digitalWrite(FAN2, OFF);
+      digitalWrite(FAN3, OFF);
+      digitalWrite(FAN4, OFF);
+      delay(5000);
+      digitalWrite(PUMP1, ON);
+      delay(15000);
+      digitalWrite(PUMP1, OFF);
+      delay(5000);
+      digitalWrite(FAN3, ON);
+      delay(5000);
+      digitalWrite(FAN2, ON);
+      digitalWrite(FAN4, ON);
     }
   }
   Serial.print("Temperatuur: ");
@@ -71,30 +88,54 @@ void loop() {
   Serial.print("Luchtvochtigheid: ");
   Serial.print(humidity);
   Serial.println("%");
-  Serial.print("Relais 1 staat ");
-  if (digitalRead(RELAY1) == ON) {
+  Serial.print("Fan 1 staat ");
+  if (digitalRead(FAN1) == ON) {
     Serial.println("aan.");
   }
   else {
     Serial.println("uit.");
   }
-  Serial.print("Relais 2 staat ");
-  if (digitalRead(RELAY2) == ON) {
+  Serial.print("Mist staat ");
+  if (digitalRead(PUMP1) == ON) {
     Serial.println("aan.");
   }
   else {
     Serial.println("uit.");
   }
-  Serial.print("Relais 3 staat ");
-  if (digitalRead(RELAY3) == ON) {
+  Serial.print("LED 1 staat ");
+  if (digitalRead(LED1) == ON) {
     Serial.println("aan.");
   }
   else {
     Serial.println("uit.");
   }
 
-  Serial.print("Relais 4 staat ");
-  if (digitalRead(RELAY4) == ON) {
+  Serial.print("LED 2 staat ");
+  if (digitalRead(LED2) == ON) {
+    Serial.println("aan.");
+  }
+  else {
+    Serial.println("uit.");
+  }
+
+  Serial.print("Fan 2 staat ");
+  if (digitalRead(FAN2) == ON) {
+    Serial.println("aan.");
+  }
+  else {
+    Serial.println("uit.");
+  }
+
+  Serial.print("Fan 3 staat ");
+  if (digitalRead(FAN3) == ON) {
+    Serial.println("aan.");
+  }
+  else {
+    Serial.println("uit.");
+  }
+
+  Serial.print("Fan 4 staat ");
+  if (digitalRead(FAN4) == ON) {
     Serial.println("aan.");
   }
   else {
