@@ -8,7 +8,8 @@ DHT dht(DHTPIN, DHTTYPE);
 #define FAN2 7
 #define FAN3 8
 #define FAN4 9
-#define PUMP1 6
+#define MIST 6
+#define PUMP1 11
 #define LED1 2
 #define LED2 3
 #define ON  LOW
@@ -21,19 +22,23 @@ unsigned long startTime3;
 unsigned long currentTime;
 unsigned long currentTime2;
 unsigned long currentTime3;
+byte speed = 80;
+
 void setup() {
    Serial.begin(9600);
    pinMode(FAN1, OUTPUT);
    pinMode(FAN2, OUTPUT);
    pinMode(FAN3, OUTPUT);
    pinMode(FAN4, OUTPUT);
+   pinMode(MIST, OUTPUT);
    pinMode(PUMP1, OUTPUT);
    pinMode(LED1, OUTPUT);
    pinMode(LED2, OUTPUT);
    digitalWrite(FAN1, OFF);
-   digitalWrite(FAN2, ON);
-   digitalWrite(FAN3, ON);
-   digitalWrite(FAN4, ON);
+   analogWrite(FAN2, speed);
+   analogWrite(FAN3, speed);
+   analogWrite(FAN4, speed);
+   digitalWrite(MIST, OFF);
    digitalWrite(PUMP1, OFF);
    digitalWrite(LED1, ON);
    digitalWrite(LED2, ON);
@@ -61,25 +66,25 @@ void loop() {
 }
     if (currentTime - startTime >= 300000) {
     startTime = currentTime;
-    if (temperature >= 28) {
+    if (temperature >= 22) {
       digitalWrite(FAN1, ON);
     }
-    else if (temperature <= 28) {
+    else if (temperature <= 22) {
       digitalWrite(FAN1, OFF);
     }
-    if (humidity <= 50) {
+    if (humidity <= 65) {
       digitalWrite(FAN2, OFF);
       digitalWrite(FAN3, OFF);
       digitalWrite(FAN4, OFF);
       delay(5000);
-      digitalWrite(PUMP1, ON);
-      delay(15000);
-      digitalWrite(PUMP1, OFF);
+      digitalWrite(MIST, ON);
+      delay(20000);
+      digitalWrite(MIST, OFF);
       delay(5000);
-      digitalWrite(FAN3, ON);
+      analogWrite(FAN3, speed);
       delay(5000);
-      digitalWrite(FAN2, ON);
-      digitalWrite(FAN4, ON);
+      analogWrite(FAN2, speed);
+      analogWrite(FAN4, speed);
     }
   }
   Serial.print("Temperatuur: ");
@@ -88,20 +93,7 @@ void loop() {
   Serial.print("Luchtvochtigheid: ");
   Serial.print(humidity);
   Serial.println("%");
-  Serial.print("Fan 1 staat ");
-  if (digitalRead(FAN1) == ON) {
-    Serial.println("aan.");
-  }
-  else {
-    Serial.println("uit.");
-  }
-  Serial.print("Mist staat ");
-  if (digitalRead(PUMP1) == ON) {
-    Serial.println("aan.");
-  }
-  else {
-    Serial.println("uit.");
-  }
+
   Serial.print("LED 1 staat ");
   if (digitalRead(LED1) == ON) {
     Serial.println("aan.");
@@ -117,30 +109,6 @@ void loop() {
   else {
     Serial.println("uit.");
   }
-
-  Serial.print("Fan 2 staat ");
-  if (digitalRead(FAN2) == ON) {
-    Serial.println("aan.");
-  }
-  else {
-    Serial.println("uit.");
-  }
-
-  Serial.print("Fan 3 staat ");
-  if (digitalRead(FAN3) == ON) {
-    Serial.println("aan.");
-  }
-  else {
-    Serial.println("uit.");
-  }
-
-  Serial.print("Fan 4 staat ");
-  if (digitalRead(FAN4) == ON) {
-    Serial.println("aan.");
-  }
-  else {
-    Serial.println("uit.");
-  }
-
+  
   Serial.println(" ");
 }
