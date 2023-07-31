@@ -87,27 +87,27 @@ void loop() {
       analogWrite(FAN4, speed);
     }
   }
-  Serial.print("Temperatuur: ");
+  Serial.print("Temperature: ");
   Serial.print(temperature);
   Serial.println("C");
-  Serial.print("Luchtvochtigheid: ");
+  Serial.print("Humidity: ");
   Serial.print(humidity);
   Serial.println("%");
 
-  Serial.print("LED 1 staat ");
+  Serial.print("LED 1 ");
   if (digitalRead(LED1) == ON) {
-    Serial.println("aan.");
+    Serial.println("on.");
   }
   else {
-    Serial.println("uit.");
+    Serial.println("off.");
   }
 
-  Serial.print("LED 2 staat ");
+  Serial.print("LED 2 ");
   if (digitalRead(LED2) == ON) {
-    Serial.println("aan.");
+    Serial.println("on.");
   }
   else {
-    Serial.println("uit.");
+    Serial.println("off.");
   }
   
   Serial.println(" ");
