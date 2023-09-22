@@ -1,14 +1,20 @@
 # Arduino
 Arduino UNO stuff !!!
+
 Greenhouse :
 
-![20230922_133119](https://github.com/wilsnico240/Arduino/assets/85696452/d7a56a87-2133-42c7-9247-3774abfa3ba0)
-![20230922_133039](https://github.com/wilsnico240/Arduino/assets/85696452/25ee9089-f5e4-4593-9110-ce3c4c07a9b9)
-![20230922_133031](https://github.com/wilsnico240/Arduino/assets/85696452/56482ccb-deaa-46eb-a990-387d60aa7602)
-![20230922_132954](https://github.com/wilsnico240/Arduino/assets/85696452/a8da505c-9a97-499a-a6f5-4aea164b2db8)
-![20230922_132939](https://github.com/wilsnico240/Arduino/assets/85696452/975ed0ef-72b6-4d62-8515-4d19b4cf619c)
-![20230922_132928](https://github.com/wilsnico240/Arduino/assets/85696452/33e851ba-5c9b-4a41-aabe-ff4a885c2bd4)
-![20230922_132857](https://github.com/wilsnico240/Arduino/assets/85696452/66ab1868-da93-44fc-98db-cf2bc1a5c505)
-![20230922_132831](https://github.com/wilsnico240/Arduino/assets/85696452/09689d6a-603f-4592-a883-343bbf3b4f27)
-![20230922_132754](https://github.com/wilsnico240/Arduino/assets/85696452/df291dd5-dbba-4d66-8a10-ff31bf4b047d)
-![20230921_140201](https://github.com/wilsnico240/Arduino/assets/85696452/87d2aa14-4821-4a23-b576-42b2e5b80b2b)
+![20230922_133031](https://github.com/wilsnico240/Arduino/assets/85696452/8a832404-9987-4bba-a337-f5a143aa0ae8)
+![20230922_132954](https://github.com/wilsnico240/Arduino/assets/85696452/eed7c1c6-2503-4ceb-9e6c-b819b1009324)
+![20230922_132939](https://github.com/wilsnico240/Arduino/assets/85696452/034677ea-68a0-432f-a36b-295f2eca33ba)
+![20230922_132928](https://github.com/wilsnico240/Arduino/assets/85696452/56d78ac2-14d0-4f55-880a-13ad56420d87)
+![20230922_132857](https://github.com/wilsnico240/Arduino/assets/85696452/c2d53d13-671a-44b3-bd3a-f9ddd3be8322)
+
+![signal-2023-09-21-13-58-56-568](https://github.com/wilsnico240/Arduino/assets/85696452/0f9206f7-dc9e-4284-8b91-cc337a8276f6)
+![signal-2023-09-21-13-58-14-128](https://github.com/wilsnico240/Arduino/assets/85696452/bf587d8d-a11a-4042-a2be-233d2c3c5c40)
+![signal-2023-09-21-13-57-55-994](https://github.com/wilsnico240/Arduino/assets/85696452/46d8854d-25b3-4584-b895-e9e5ca5f8a02)
+![20230921_140201](https://github.com/wilsnico240/Arduino/assets/85696452/3564292e-ed5e-43f2-a61f-676ea83b4216)
+
+
+
+https://github.com/wilsnico240/Arduino/assets/85696452/c407a162-bbd1-45c8-b77c-1162974fc62c
+
