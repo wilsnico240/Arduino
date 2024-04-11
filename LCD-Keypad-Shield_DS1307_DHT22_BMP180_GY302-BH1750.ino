@@ -27,8 +27,10 @@ float humidity = 0;
 float lumiere = 0;
 float pressure = 0;
 int lcd_key = 0;
+int lcd_key2 = 0;
 int adc_key_in = 0;
 int menuIndex = 0;
+int menuIndex2 = 0;
 int read_LCD_buttons() {
    adc_key_in = analogRead(0);
    if (adc_key_in < 50) return btnRIGHT;
@@ -57,6 +59,31 @@ if((err=dht22.read2(&temperature, &humidity, NULL)) != SimpleDHTErrSuccess){
      return;
     }
     }
+void displayMenuVertical() {
+  switch(menuIndex2) {
+    case 0:
+        lcd.setCursor(0, 0);
+        lcd.print("Pression:       ");
+        lcd.setCursor(0, 1);
+        if (millis() - lastAnalogReadTime > analogReadInterval) {
+          pressure = bmp.readPressure();
+          lastAnalogReadTime = millis();
+        }
+        lcd.print(pressure);
+        lcd.print(" Pa.      ");
+      break;
+     case 1:
+      lcd.setCursor(0, 0);
+      lcd.print("Altitude:        ");
+      lcd.setCursor(0, 1);
+      if (millis() - lastAnalogReadTime > analogReadInterval) {
+      lcd.print(bmp.readAltitude());
+      lcd.print(" m         ");
+      lastAnalogReadTime = millis();
+       }
+      break;
+  }
+}
 
 void displayMenu() {
     switch(menuIndex) {
@@ -106,15 +133,26 @@ void displayMenu() {
         lcd.print(" Lx.      ");
         break;
       case 4:
-        lcd.setCursor(0, 0);
-        lcd.print("Pression:       ");
-        lcd.setCursor(0, 1);
-        if (millis() - lastAnalogReadTime > analogReadInterval) {
-          pressure = bmp.readPressure();
-          lastAnalogReadTime = millis();
+        lcd_key2 = read_LCD_buttons();
+        if(lcd_key2 == btnUP) {
+        if (millis() - lastButtonPressTime > buttonPressInterval) {
+        menuIndex2++;
+        if (menuIndex2 > 1) {
+        menuIndex2 = 0;
         }
-        lcd.print(pressure);
-        lcd.print(" Pa.      ");
+        lastButtonPressTime = millis();
+        }
+       }
+       if(lcd_key2 == btnDOWN) {
+       if (millis() - lastButtonPressTime > buttonPressInterval) {
+       menuIndex2--;
+       if (menuIndex2 < 0) {
+       menuIndex2 = 1;
+       }
+       lastButtonPressTime = millis();
+       }
+      }
+        displayMenuVertical();
         break;
     }
 }
