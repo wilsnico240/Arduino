@@ -59,6 +59,7 @@ if((err=dht22.read2(&temperature, &humidity, NULL)) != SimpleDHTErrSuccess){
      return;
     }
     }
+
 void displayMenuVertical() {
   switch(menuIndex2) {
     case 0:
@@ -78,7 +79,7 @@ void displayMenuVertical() {
       lcd.setCursor(0, 1);
       if (millis() - lastAnalogReadTime > analogReadInterval) {
       lcd.print(bmp.readAltitude());
-      lcd.print(" m         ");
+      lcd.print(" m.        ");
       lastAnalogReadTime = millis();
        }
       break;
