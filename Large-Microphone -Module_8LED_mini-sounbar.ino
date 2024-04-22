@@ -13,7 +13,7 @@ void setup(){
 
 void loop(){
   sensorValue = analogRead(sensorPin);
-  percentage = map(sensorValue, 225,300, 0, 100);
+  percentage = map(sensorValue, 250,350, 0, 100);
   
   for(int i=0; i<8; i++){
     if(percentage >= ((i+1)*12.5)){
