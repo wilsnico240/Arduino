@@ -10,7 +10,7 @@ const int in1 = 4;
 const int in2 = 3;
 const int ena = 2;
 const int buttonPin = 5;
-const int stepsPerRevolution = 2038;
+const int stepsPerRevolution = 200;
 int buttonState = 0;
 int lastButtonState = 0;
 unsigned long lastDebounceTime = 0;
@@ -25,8 +25,13 @@ pinMode(buttonPin, INPUT_PULLUP);
 pinMode(in1, OUTPUT);
 pinMode(in2, OUTPUT);
 pinMode(ena, OUTPUT);
+setupScan();
 digitalWrite(in1, LOW);
 digitalWrite(in2, LOW);
+digitalWrite(motorPin1, LOW);
+digitalWrite(motorPin2, LOW);
+digitalWrite(motorPin3, LOW);
+digitalWrite(motorPin4, LOW);
 }
 
 void motor1() {
@@ -57,15 +62,15 @@ Serial.print(" ");
 }
 
 void motor2() {
-for (int m = 0; m < 25; m++) {
-xrange();
+for (int m = 0; m < 45; m++) {
 Backward2();
+xrange();
 }
 Forward2();
 }
 
 void scan() {
-for (int s = 0; s < 34; s++) {
+for (int s = 0; s < 35; s++) {
 motor2();
 Serial.println();
 motor1();
@@ -88,20 +93,27 @@ digitalWrite(in2, LOW);
 }
 
 void Backward2() {
-int stepsToMove = stepsPerRevolution * 0.04;
-for (int i = 0; i < stepsToMove; i++) {
-stepper.step(1);
+for (int i = 0; i < 45; i++) {
+stepper.step(stepsPerRevolution / 8);
 delay(5);
 }}
     
 void Forward2() {
-for (int f = 0; f < 25; f++) {
-int stepsToMove = stepsPerRevolution * 0.04;
-for (int i = 0; i < stepsToMove; i++) {
-stepper.step(-1);
+for (int f = 0; f < 45; f++) {
+for (int i = 0; i < 45; i++) {
+stepper.step(-stepsPerRevolution / 8);
 delay(5);
 }}
 } 
+
+void setupScan() {
+for (int m = 0; m < 45; m++) {
+Backward2();
+delay(5);
+}
+Forward2();
+delay(5);
+}
 
 void loop() {
 int reading = digitalRead(buttonPin);
