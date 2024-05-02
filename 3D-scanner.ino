@@ -57,8 +57,8 @@ digitalWrite(motorPin4, LOW);
 
 void xrange() {
 const int range = vl.readRange();
-Serial.print(range);
 Serial.print(" ");  
+Serial.print(range);
 }
 
 void motor2() {
@@ -72,6 +72,7 @@ Forward2();
 void scan() {
 for (int s = 0; s < 35; s++) {
 motor2();
+Serial.print(" ");  
 Serial.println();
 motor1();
 }
