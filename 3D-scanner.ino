@@ -2,6 +2,9 @@
 #include <Wire.h>
 #include "Adafruit_VL6180X.h"
 Adafruit_VL6180X vl = Adafruit_VL6180X();
+const int BLUE = 12;
+const int GREEN = 7;
+const int RED = 6;
 const int motorPin1 = 8;
 const int motorPin2 = 9;
 const int motorPin3 = 10;
@@ -25,13 +28,21 @@ pinMode(buttonPin, INPUT_PULLUP);
 pinMode(in1, OUTPUT);
 pinMode(in2, OUTPUT);
 pinMode(ena, OUTPUT);
+pinMode(RED, OUTPUT);
+pinMode(GREEN, OUTPUT);
+pinMode(BLUE, OUTPUT);
+digitalWrite(RED, HIGH);
+digitalWrite(GREEN, LOW);
+digitalWrite(BLUE, LOW);
 setupScan();
+digitalWrite(RED, LOW);
 digitalWrite(in1, LOW);
 digitalWrite(in2, LOW);
 digitalWrite(motorPin1, LOW);
 digitalWrite(motorPin2, LOW);
 digitalWrite(motorPin3, LOW);
 digitalWrite(motorPin4, LOW);
+digitalWrite(GREEN, HIGH);
 }
 
 void motor1() {
@@ -46,6 +57,7 @@ delay(500);
 void motor1null() {
 Forward();
 delay(19975);
+digitalWrite(RED, LOW);
 analogWrite(ena, 0);
 digitalWrite(in1, LOW);
 digitalWrite(in2, LOW);
@@ -53,12 +65,15 @@ digitalWrite(motorPin1, LOW);
 digitalWrite(motorPin2, LOW);
 digitalWrite(motorPin3, LOW);
 digitalWrite(motorPin4, LOW);
+digitalWrite(GREEN, HIGH);
 }
 
 void xrange() {
+digitalWrite(BLUE, HIGH);
 const int range = vl.readRange();
-Serial.print(" ");  
 Serial.print(range);
+Serial.print(" ");  
+digitalWrite(BLUE, LOW);
 }
 
 void motor2() {
@@ -70,9 +85,10 @@ Forward2();
 }
 
 void scan() {
+digitalWrite(GREEN, LOW);
+digitalWrite(RED, HIGH);
 for (int s = 0; s < 35; s++) {
 motor2();
-Serial.print(" ");  
 Serial.println();
 motor1();
 }
