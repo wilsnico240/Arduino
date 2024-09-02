@@ -166,30 +166,59 @@ Snake game title and game over images :
 https://drive.google.com/file/d/1B48QOGezjHesQIc8wZLghP3DnTz1CdIK/view
 
 Things used in this project
+
 Hardware components
+
 Arduino UNO R4 WiFi ×	1	
+
 GUVA-S12SD	×	1		
+
 MQ-8	×	1		
+
 MQ-7	×	1		
+
 MQ-6	×	1	
+
 MQ-5	×	1		
+
 MQ-4	×	1		
+
 MQ-3	×	1		
+
 MQ-2	×	1	
+
 MQ-135	×	1	
+
 Modulo Joystick	×	1		
+
 KY-004	×	4	
+
 128X128 oled	×	1	
+
 RGB LED matrix 16X16	×	1	
+
 Loudspeaker, 2W	 ×	1		
+
 relay module	×	1	
+
 DHT22 Temperature Sensor	×	1	
+
 traffic light	×	1	
+
 BMP180	×	1	
+
 Male/Female Jumper Wires	×	1	
+
 Male/Male Jumper Wires	×	1	
+
 Toy car flashing light	×	1		
+
 5v mini cooling fan	×	1	
+
 Breadboard (generic) Big	×	1	
+
 Solderless Breadboard Half Size		×	1	
+
 OPEN-SMART I2C LED MATRIX 16x8	×	1	
+
+![20240830_214122_S2GmDFPjBj](https://github.com/user-attachments/assets/51efaeba-3f2d-4d34-9464-39c3b797964f)
