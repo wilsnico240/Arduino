@@ -222,3 +222,19 @@ Solderless Breadboard Half Size		×	1
 OPEN-SMART I2C LED MATRIX 16x8	×	1	
 
 ![20240830_214122_S2GmDFPjBj](https://github.com/user-attachments/assets/51efaeba-3f2d-4d34-9464-39c3b797964f)
+
+![20240825_112453_nSvVhsf0Xi](https://github.com/user-attachments/assets/c23be584-92ea-437a-8313-edb90c6c4e22)
+
+![20240825_112421_bhYA4u3a8h](https://github.com/user-attachments/assets/b3dccf95-4989-48f2-a5d2-1efb8a4893d7)
+
+![20240825_112410_AsxtZzAgZV](https://github.com/user-attachments/assets/47e82763-a2eb-4360-92c1-9ca83feb3d9b)
+
+![20240825_112410_AsxtZzAgZ2V](https://github.com/user-attachments/assets/809e8181-7a62-4a23-941c-6dc109d21419)
+
+![20240825_112415_lTQCDmtFKk](https://github.com/user-attachments/assets/85cd4fe2-6203-4d11-849a-7cde1b749aae)
+
+![20240825_112431_35CZYHJ8GY](https://github.com/user-attachments/assets/7c3052a3-50c6-4cdf-b214-15e2f9663e75)
+
+![20240825_112447_6sLSS0cPhi](https://github.com/user-attachments/assets/3a76f740-98be-48bf-9340-cf0c448b0b34)
+
+![20240825_112512_gZkfNRhVbP](https://github.com/user-attachments/assets/b59c879d-7101-4f4b-9539-a068261825c3)
