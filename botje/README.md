@@ -249,6 +249,8 @@ OPEN-SMART I2C LED MATRIX 16x8	×	1
 
 ![20240825_133557_QOow1LIx8B](https://github.com/user-attachments/assets/d47c307e-c30d-46d9-ad0c-aa519f4f952a)
 
+![1000023195](https://github.com/user-attachments/assets/74d35b5d-a592-4323-9362-ac4b9e1751e4)
+
 ![20240825_133548_oJ8ODCWfEW](https://github.com/user-attachments/assets/ec9aafaf-7336-4eac-8e28-4180b656a844)
 
 ![20240825_112601_KbFX0tujju](https://github.com/user-attachments/assets/2d37acf3-a2df-43a4-bfa2-4644010d8927)
