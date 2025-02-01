@@ -8,14 +8,14 @@ Adafruit_NeoPixel WS2812b = Adafruit_NeoPixel(WS2812b_PIXELS,
 WS2812b_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
-  Serial.begin(9600);
-  WS2812b.begin();
-  WS2812b.clear();
-  WS2812b.show();
+Serial.begin(9600);
+WS2812b.begin();
+WS2812b.clear();
+WS2812b.show();
 }
 
 void drawFire() {
-WS2812b.setBrightness(100);
+WS2812b.setBrightness(75);
 for (int y = 0; y < WS2812b_HEIGHT; y++) {
 for (int x = 0; x < WS2812b_WIDTH; x++) {
 int index = y * WS2812b_WIDTH + x;
@@ -34,14 +34,18 @@ green = 0;
 red += random(-20, 20);
 red = constrain(red, 0, 255);
 if (y == 7) {
+red = (int)(red * 0.10); 
+green = (int)(green * 0.10);
+} 
+else if (y == 6) {
 red = (int)(red * 0.25); 
 green = (int)(green * 0.25);
 } 
-else if (y == 6) {
+else if (y == 5) {
 red = (int)(red * 0.50); 
 green = (int)(green * 0.50);
-} 
-else if (y == 5) {
+}
+else if (y == 4) {
 red = (int)(red * 0.75); 
 green = (int)(green * 0.75);
 }
