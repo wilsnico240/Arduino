@@ -13,9 +13,9 @@ WS2812b.show();
 }
 
 void matrixEffect() {
-WS2812b.setBrightness(100);
-static int columnHeads[WS2812b_WIDTH] = {-1}; 
-const uint8_t spawnChance = 30; 
+WS2812b.setBrightness(50);
+static int columnHeads[WS2812b_WIDTH] = {-1};
+const uint8_t spawnChance = 30;
 const uint32_t groen = WS2812b.Color(0, 150, 0);
 for(int i=0; i<WS2812b.numPixels(); i++) {
 uint32_t kleur = WS2812b.getPixelColor(i);
@@ -27,19 +27,23 @@ WS2812b.setPixelColor(i, r*0.7, g*0.7, b*0.7);
 for(int col=0; col<WS2812b_WIDTH; col++) {
 if(columnHeads[col] == -1) {
 if(random(255) < spawnChance) {
-columnHeads[col] = 0; // Start bovenaan
+columnHeads[col] = WS2812b_HEIGHT - 1; 
 }
 } 
 else {
 int row = columnHeads[col];
-int pixelIndex = (row % 2 == 0) ? 
-row * WS2812b_WIDTH + col : 
-row * WS2812b_WIDTH + (WS2812b_WIDTH - 1 - col);
+int pixelIndex = row * WS2812b_WIDTH + col;
+if(pixelIndex >= 0 && pixelIndex < WS2812b_PIXELS) {
 WS2812b.setPixelColor(pixelIndex, groen);
-if(row > 0) WS2812b.setPixelColor(pixelIndex - WS2812b_WIDTH, groen/2);
-if(row > 1) WS2812b.setPixelColor(pixelIndex - 2*WS2812b_WIDTH, groen/4);
-columnHeads[col]++; 
-if(columnHeads[col] >= WS2812b_HEIGHT + 2) {
+}
+for(int i=1; i<=2; i++) {
+int trailRow = row + i;
+if(trailRow < WS2812b_HEIGHT) {
+int trailIndex = trailRow * WS2812b_WIDTH + col;
+WS2812b.setPixelColor(trailIndex, groen/(i*2));
+}}
+columnHeads[col]--;
+if(columnHeads[col] < -2) {
 columnHeads[col] = -1;
 }}}
 WS2812b.show();
